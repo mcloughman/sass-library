@@ -5,22 +5,30 @@
   .bg-#{$key} {
     background-color: $val;
   }
-  @for $i from 1 through 9 {
-    .text-#{$key}-light-#{$i} {
-      // we're goig to mix white in to make it lighter
-      color: mix(white, $val, $i * 10%);
+
+  // we're goig to mix white or black in to to make it lighter or darker. But we don't need to do it when he value is either black or white
+  @if ($val != black and $val != white) {
+    @for $i from 1 through 9 {
+      .text-#{$key}-light-#{$i} {
+        color: mix(white, $val, $i * 10%);
+      }
+      .bg-#{$key}-light-#{$i} {
+        background-color: mix(white, $val, $i * 10%);
+      }
     }
-    .bg-#{$key}-light-#{$i} {
-      background-color: mix(white, $val, $i * 10%);
+    @for $i from 1 through 9 {
+      .text-#{$key}-dark-#{$i} {
+        color: mix(black, $val, $i * 10%);
+      }
+      .bg-#{$key}-dark-#{$i} {
+        background-color: mix(black, $val, $i * 10%);
+      }
     }
   }
-  @for $i from 1 through 9 {
-    .text-#{$key}-dark-#{$i} {
-      // we're goig to mix white in to make it lighter
-      color: mix(black, $val, $i * 10%);
-    }
-    .bg-#{$key}-dark-#{$i} {
-      background-color: mix(black, $val, $i * 10%);
-    }
+}
+
+@if (10 < 5) {
+  .test-if {
+    color: black;
   }
 }
