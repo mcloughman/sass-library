@@ -26,8 +26,8 @@
       background-color: $val;
     }
   }
-  .btn-complementary-#{$key} {
-    // create a function that will return a complimentary color
+  .btn-complement-#{$key} {
+    // use the function that will return a complimentary color
     @include btn($val);
     color: light-comp($val);
     &:hover {
