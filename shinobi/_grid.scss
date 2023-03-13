@@ -1,6 +1,17 @@
 @use "sass:math";
 $grid-columns: 12;
 
+$grid-gaps: (
+  "0": 0,
+  "1": 10px,
+  "2": 20px,
+  "3": 30px,
+);
+
+// we will use a list this time with just values...no keys just comma separated values
+$layout-values: flex-start, flex-end, center, space-between, space-around,
+  space-evenly;
+
 // base layout
 .container {
   width: 100%;
@@ -13,6 +24,21 @@ $grid-columns: 12;
 .row {
   display: flex;
   flex-flow: row wrap;
+}
+
+// grid gaps
+@each $key, $val in $grid-gaps {
+  // grab the immediate items inside the grid gap
+  .gap-#{$key} > * {
+    padding: $val;
+  }
+}
+
+// justify content
+@each $val in $layout-values {
+  .justify-#{$val} {
+    justify-content: $val;
+  }
 }
 
 // col classes
