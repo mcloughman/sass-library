@@ -1,0 +1,32 @@
+// we use percent sign instead of a . because we don't need this class preset in the final css file
+// but still not working properly for me so i will go back to .
+// %flex-layout {
+.flex-layout {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.navbar {
+  // @extend similar but not same as mixin. takes no args and is compiled differently
+  @extend .flex-layout !optional;
+  padding: $base-padding $base-padding * 2;
+  box-shadow: $base-box-shadow;
+
+  .site-title {
+    font-size: $font-size-lg;
+  }
+  // in our navbar, we want the container within it to be flex
+  .container {
+    @extend .flex-layout !optional;
+  }
+}
+
+@each $key, $val in $colors {
+  .navbar-#{$key} {
+    @extend .navbar;
+    background-color: $val;
+  }
+}
