@@ -1,7 +1,7 @@
 // theme colors
 // By having the undersore at the fron to the file name, gulp will know NOT to compile it to a css file. It's just a PARTIAL
 
-$primary: #326dee;
+$primary: #326dee !default; // use given color as primary unless another was declared
 $secondary: #1ac888;
 $error: #d32752;
 $info: #f6c31c;

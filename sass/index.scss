@@ -1,0 +1,8 @@
+// if we want to make changes to out library, we could put them here
+.test {
+  margin: 10px;
+}
+
+$primary: indigo;
+// since we only want the index file, we don't have to specify the file. The default is index
+@import "shinobi";
